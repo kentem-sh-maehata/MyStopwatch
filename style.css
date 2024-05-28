@@ -1,1 +1,26 @@
-/*# sourceMappingURL=style.css.map */
+body {
+  background: #eee;
+  text-align: center;
+  font-family: "Courier New", monospace;
+}
+body main {
+  width: 250px;
+  background: white;
+  border: 16px solid white;
+}
+body main h1 {
+  margin: 0;
+  background: #ddd;
+  padding: 32px;
+}
+body main .btn {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+body main .btn button {
+  width: 70px;
+  padding: 10px;
+  border: none;
+  font-size: 14px;
+}/*# sourceMappingURL=style.css.map */

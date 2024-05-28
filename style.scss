@@ -1,0 +1,26 @@
+body{
+  background: #eee;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  main{
+    width: 250px;
+    background: white;
+    border: 16px solid white;
+    h1{
+      margin: 0;
+      background: #ddd;
+      padding: 32px;
+    }
+    .btn{
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      button{
+        width: 70px;
+        padding: 10px;
+        border: none;
+        font-size: 14px;
+      }
+    }
+  }
+}
