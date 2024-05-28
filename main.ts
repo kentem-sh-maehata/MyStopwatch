@@ -4,15 +4,25 @@
   const stop = document.getElementById('stop')
   const reset = document.getElementById('reset')
 
+  let intervalId:NodeJS.Timeout
+  let elapsed:Date
   start?.addEventListener('click',()=>{
     const startTime = new Date().getTime()
     console.log(new Date().getTime())
     
-    const intervalId = setInterval(()=>{
-      const elapsed:string[] = (new Date().getTime() - startTime).toString().split("")
+    intervalId = setInterval(()=>{
+      elapsed = new Date(new Date().getTime() - startTime)
       
+      const minute:string = elapsed.getMinutes().toString()
+      const second:string = elapsed.getSeconds().toString()
+      const millisecond:string = elapsed.getMilliseconds().toString()
+      
+      if(time)
+        time.innerHTML = `${minute.padStart(2,"0")}:${second.padStart(2,"0")}.${millisecond.padStart(3,"0")}`
+    },5)
+  })
+  stop?.addEventListener('click',()=>{
+    clearInterval(intervalId)
 
-    },1000)
-    // clearInterval(intervalId)
   })
 }
