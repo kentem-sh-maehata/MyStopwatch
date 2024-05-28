@@ -5,24 +5,29 @@
   const reset = document.getElementById('reset')
 
   let intervalId:NodeJS.Timeout
-  let elapsed:Date
+  let elapsedTime = 0
+  let startTime = 0
+  console.log(new Date(Date.now() - Date.now() + 0))
+  
   start?.addEventListener('click',()=>{
-    const startTime = new Date().getTime()
-    console.log(new Date().getTime())
-    
+    startTime = Date.now()
     intervalId = setInterval(()=>{
-      elapsed = new Date(new Date().getTime() - startTime)
+      const elapsed:Date = new Date(Date.now() - startTime + elapsedTime)
+      // console.log(elapsed)
       
-      const minute:string = elapsed.getMinutes().toString()
-      const second:string = elapsed.getSeconds().toString()
-      const millisecond:string = elapsed.getMilliseconds().toString()
+      const minute:string = elapsed.getMinutes().toString().padStart(2,"0")
+      const second:string = elapsed.getSeconds().toString().padStart(2,"0")
+      const millisecond:string = elapsed.getMilliseconds().toString().padStart(3,"0")
       
       if(time)
-        time.innerHTML = `${minute.padStart(2,"0")}:${second.padStart(2,"0")}.${millisecond.padStart(3,"0")}`
-    },5)
+        time.innerHTML = `${minute}:${second}.${millisecond}`
+    },7)
+
+
   })
+
   stop?.addEventListener('click',()=>{
     clearInterval(intervalId)
-
+    elapsedTime += Date.now() - startTime
   })
 }
